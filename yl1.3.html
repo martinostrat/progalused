@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        let btn = document.getElementById("arvutaBtn");
+        btn.addEventListener("click", function () {
+          let resultBox = document.getElementById("vastus");
+          let astmealus = document.getElementById("astmealus").value;
+          let astendaja = document.getElementById("astendaja").value;
+          let result = astmealus ** astendaja;
+
+          resultBox.innerHTML = result;
+          console.log(astmealus);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <label for="astmealus">Astmealus:</label>
+    <input type="number" name="astmealus" id="astmealus" /><br />
+    <label for="astendaja">Astendaja:</label>
+    <input type="number" name="astendaja" id="astendaja" /><br /><br />
+    <button id="arvutaBtn">Arvuta!</button><br /><br />
+    <span>Tulemus: <b id="vastus"></b></span>
+  </body>
+</html>

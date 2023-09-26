@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        document
+          .getElementById("calcBtn")
+          .addEventListener("click", function () {
+            const ap = document.getElementById("ap").value;
+            const ak = document.getElementById("ak").value;
+
+            const apHour = ap * 26;
+            const result = Math.round(apHour / ak);
+
+            document.getElementById("result").innerHTML = result;
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <label for="ap">Sisestage oma ainepunktide arv</label><br />
+    <input type="number" id="ap" name="ap" /><br />
+    <label for="ak">Sisestage nädalate arv</label><br />
+    <input type="number" name="ak" id="ak" /><br /><br />
+    <button id="calcBtn">Arvuta</button><br /><br /><br /><br />
+    <div id="result"></div>
+  </body>
+</html>

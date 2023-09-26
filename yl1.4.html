@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        document.getElementById("btn").addEventListener("click", function () {
+          const nimi = document.getElementById("nimi").value;
+          const lubatud = document.getElementById("lubatud").value;
+          const tegelik = document.getElementById("tegelik").value;
+          const vastus = document.getElementById("result");
+          let yle = tegelik - lubatud;
+
+          if (yle > 0) {
+            if (yle * 3 > 190) {
+              vastus.innerHTML =
+                nimi + ", kiiruse ületamise eest on teie trahv " + 190;
+            } else {
+              vastus.innerHTML =
+                nimi + ", kiiruse ületamise eest on teie trahv " + yle * 3;
+            }
+          } else {
+            vastus.innerHTML = nimi + ", te pole kiirust ületanud";
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <label for="nimi">Nimi:</label><br />
+    <input type="text" name="nimi" id="nimi" /><br />
+    <label for="lubatud">Lubatud kiirus:</label><br />
+    <input type="number" name="lubatud" id="lubatud" /><br />
+    <label for="tegelik">Tegelik kiirus:</label><br />
+    <input type="number" name="tegelik" id="tegelik" /><br /><br /><br />
+    <button id="btn">Arvuta trahv</button><br /><br />
+    <br /><br /><br />
+    <div id="result"></div>
+  </body>
+</html>
