@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("subBtn");
+
+        btn.addEventListener("click", () => {
+          const vanus = document.getElementById("vanus").value;
+          const sugu = document.getElementById("sugu").value;
+          const tyyp = document.getElementById("tyyp").value;
+          const result = document.getElementById("result");
+          let maxP;
+
+          if (sugu == "m" || sugu == 'M') {
+            maxP = 220 - vanus;
+          } else if (sugu == "n" || sugu == 'N') {
+            maxP = 206 - vanus * 0.88;
+          }
+
+          switch (parseInt(tyyp)) {
+            case 1:
+              pMin = Math.round(maxP * 0.5);
+              pMax = Math.round(maxP * 0.7);
+              result.innerHTML =
+                "Pulsisagedus peaks olema vahemikus " + pMin + " ja " + pMax;
+              break;
+            case 2:
+                pMin = Math.round(maxP * 0.7);
+                pMax = Math.round(maxP * 0.8);
+                result.innerHTML = "Pulsisagedus peaks olema vahemikus " + pMin + " ja " + pMax;
+                break;
+            case 3:
+                pMin = Math.round(maxP * 0.8);
+                pMax = Math.round(maxP * 0.87);
+                result.innerHTML = "Pulsisagedus peaks olema vahemikus " + pMin + " ja " + pMax;
+                break;
+            default:
+                result.innerHTML = "Sisestage korrektsed andmed";
+                break;
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <label for="vanus">Sisestage oma vanus:</label><br />
+    <input type="number" name="vanus" id="vanus" /><br />
+    <label for="sugu">Sisestage oma sugu(m/n):</label><br />
+    <input type="text" name="sugu" id="sugu" /><br />
+    <label for="tyyp">Valige treeningutüüp:</label><br />
+    <select name="tyyp" id="tyyp">
+      <option value="1">Tervisetreening</option>
+      <option value="2">Põhivastupidavuse treening</option>
+      <option value="3">Intensiivne treening</option></select
+    ><br /><br /><br />
+    <button id="subBtn">Check</button>
+    <div id="result"></div>
+  </body>
+</html>

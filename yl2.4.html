@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #sh {
+        display: none;
+      }
+    </style>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("btn");
+        const btn2 = document.getElementById("btn2");
+
+        btn.addEventListener("click", () => {
+          const a1 = document.getElementById("q1").value;
+          const a2 = document.getElementById("q2").value;
+          const result = document.getElementById("result");
+          const loos = Math.random();
+
+          if (a1 == "ise") {
+            document.getElementById("sh").style.display = "contents";
+
+            if (typeof a2 !== null && a2 == "aken") {
+              result.innerHTML = "Valisite ise. Aknakoht";
+            } else if (typeof a2 !== null && a2 == "muu") {
+              result.innerHTML = "Valisite ise. Muu koht";
+            } 
+
+          } else if (a1 == "loos") {
+            if (loos < 0.33) {
+              result.innerHTML = "Istekoht loositi. Aknakoht";
+            } else {
+              result.innerHTML = "Istekoht loositi. Muu koht";
+            }
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <label for="isteValik">Kas soovite istekoha ise valida?</label><br />
+    <select name="isteValik" id="q1">
+      <option value="ise">Jah, valin ise</option>
+      <option value="loos">Ei, loosi mulle koht</option>
+    </select>
+    <br /><br />
+    <div id="sh">
+      <label for="q2" class="q2">Kas soovite istuda akna ääres?</label><br />
+      <select name="q2" id="q2" class="q2">
+        <option value="">-</option>
+        <option value="aken">Jah</option>
+        <option value="muu">Ei</option>
+      </select>
+    </div>
+    <br /><br />
+    <button id="btn">Go</button><br /><br /><br /><br />
+    <div id="result"></div>
+  </body>
+</html>

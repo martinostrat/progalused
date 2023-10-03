@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const btn = document.getElementById("btn");
+            const result = document.getElementById('result');
+
+            btn.addEventListener('click', () => {
+                const suurus = document.getElementById('suurus').value;
+                const pealkiri = document.getElementById('pealkiri').value;
+                const manus = document.querySelector('input[name="manus"]:checked').value;
+
+                if((pealkiri === "") || (manus === 'jah' && suurus > 1)) {
+                    result.innerHTML = 'Kiri on spämm';
+                } else {
+                    result.innerHTML = 'Kiri ei ole spämm';
+                }
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <label for="suurus">Sisestage kirja suurus (MB):</label><br>
+    <input type="number" name="suurus" id="suurus" required><br><br>
+    <label for="pealkiri">Sisestage kirja pealkiri:</label><br>
+    <input type="text" name="pealkiri" id="pealkiri"><br><br>
+    <label for="manus">Kas kirjaga on kaasas fail?</label><br>
+    <input type="radio" name="manus" value="jah"> Jah
+    <input type="radio" name="manus" value="ei"> Ei
+    <br><br><br>
+    <button id="btn">Go</button>
+    <br><br><br>
+    <div id="result"></div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const btn = document.getElementById('checkBtn');
+            const result = document.getElementById('result');
+            btn.addEventListener('click', () => {
+                const tempValue = document.getElementById('temp').value;
+
+                if(tempValue > 4) {
+                    result.innerHTML = "Ei ole jäätumise ohtu";
+                } else {
+                    result.innerHTML = "On jäätumise oht";
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <label for="temp">Sisesta õhutemp</label><br>
+    <input type="text" name="temp" id="temp"><br>
+    <button id="checkBtn">Check</button><br><br><br>
+
+    <div id="result"></div>
+</body>
+</html>

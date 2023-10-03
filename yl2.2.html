@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+          const btn = document.getElementById('checkBtn');
+          const result = document.getElementById('result');
+
+          btn.addEventListener('click', () => {
+              let nimi = document.getElementById('nimi').value;
+
+              if(nimi.slice(-2) == 'ne') {
+                  result.innerHTML = 'Abielus';
+              } else if(nimi.slice(-2) == 'te') {
+                result.innerHTML = 'Vallaline';
+              } else if(nimi.slice(-1) == 'e') {
+                result.innerHTML = 'Määramata';
+              } else if (nimi.slice(-1) !== 'e') {
+                result.innerHTML = 'Pole ilmselt leedulanna'
+              }
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <label for="nimi">Sisestage Leedu perekonnanimi:</label><br />
+    <input type="text" name="nimi" id="nimi" /><br />
+    <button id="checkBtn">Check</button><br /><br /><br />
+    <div id="result"></div>
+  </body>
+</html>
