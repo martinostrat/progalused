@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const btn = document.getElementById('btn');
+
+            btn.addEventListener('click', () => {
+                const arv = parseInt(document.getElementById('arv').value);
+                let start = 0;
+
+                while(start < arv) {
+                    console.log('Tõuse ja sära!');
+                    document.getElementById('result').innerHTML += 'Tõuse ja sära!' + '<br/>';
+                    start++;
+                }
+                
+            });
+        });
+    </script>
+</head>
+<body>
+    <label for="arv">Sisesta mitu korda äratada:</label><br>
+    <input type="number" name="arv" id="arv"><br><br>
+    <button id="btn">Ärata</button><br><br><br>
+    <div id="result"></div>
+</body>
+</html>

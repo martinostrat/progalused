@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("sub");
+
+        btn.addEventListener("click", () => {
+          let soovijateArv = document.getElementById("tahtjateArv").value | 0;
+          let min = Math.ceil(1);
+          let max = Math.floor(2);
+          let i = 0;
+          let jagatudKokku = 0;
+
+          while (i < soovijateArv) {
+            let span = document.createElement("span");
+            let rNum = Math.floor(Math.random() * (max - min + 1)) + min;
+            jagatudKokku += rNum;
+            let text = document.createTextNode(rNum);
+            let br = document.createElement("br");
+            span.appendChild(text);
+            let e = document.getElementById("result");
+            e.appendChild(span);
+            span.appendChild(br);
+            i++;
+          }
+
+          let jaak = 14 - jagatudKokku;
+
+          document.getElementById("jaak").innerHTML =
+            "Lumivalgekesele jäi " + jaak + " õuna.";
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <label for="mitu">Mitu pöialpoissi õunu tahab?</label><br />
+    <input type="number" name="mitu" id="tahtjateArv" /><br />
+    <button id="sub">Loosi</button><br /><br /><br />
+    <div id="result"></div>
+    <div id="jaak"></div>
+  </body>
+</html>

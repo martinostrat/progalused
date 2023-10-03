@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("sub");
+
+        sub.addEventListener("click", () => {
+          const rArv = document.getElementById("ringideArv").value;
+          let porgandeid = 0;
+          let porgandeidKokku = 0;
+
+          let i = 0;
+
+          while (i < Math.floor(rArv / 2)) {
+            porgandeid += 2;
+            porgandeidKokku += porgandeid;
+            i++;
+          }
+
+          document.getElementById("result").innerHTML =
+            "Porgandite koguarv on: " + porgandeidKokku;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <label for="ringideArv">Sisesta ringide arv:</label><br />
+    <input type="number" name="ringideArv" id="ringideArv" /><br />
+    <button id="sub">Arvuta</button><br /><br /><br />
+    <div id="result"></div>
+  </body>
+</html>

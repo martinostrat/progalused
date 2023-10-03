@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("sub");
+
+        sub.addEventListener("click", () => {
+          taringuteArv = document.getElementById("tArv").value;
+          taringuteArvInt = taringuteArv | 0;
+          let min = Math.ceil(1);
+          let max = Math.floor(6);
+          i = 0;
+
+          while (i < taringuteArvInt) {
+            let span = document.createElement("span");
+            let text = document.createTextNode(
+              Math.floor(Math.random() * (max - min + 1)) + min
+            );
+            let br = document.createElement("br");
+            span.appendChild(text);
+            let e = document.getElementById("result");
+            e.appendChild(span);
+            span.appendChild(br);
+            i++;
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <label for="tArv">Sisestage täringute arv:</label><br />
+    <input type="number" name="tArv" id="tArv" /><br />
+    <button id="sub">Veereta!</button><br /><br />
+    <div id="result"></div>
+  </body>
+</html>
